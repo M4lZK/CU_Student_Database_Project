@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Student</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">DBProject</a>
+    </div>
+    <ul class="nav navbar-nav">
+     <li><a href="file:///C:/Users/M4lZK/Desktop/DBWeb/home.html">Home</a></li>
+      <li class="active"><a href="file:///C:/Users/M4lZK/Desktop/DBWeb/searchStudent.html">Student</a></li>
+      <li><a href="file:///C:/Users/M4lZK/Desktop/DBWeb/searchActivity.html">Activity&Award</a></li>
+       <li><a href="file:///C:/Users/M4lZK/Desktop/DBWeb/searchCourse.html">Course</a></li>
+       <li><a href="file:///C:/Users/M4lZK/Desktop/DBWeb/searchCurriculum.html">Curriculum</a></li>
+      
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+<h2><span class="label label-success">ระบบค้นหาข้อมูลนิสิต</span></h2>
+</div>
+<br />
+
+<div class="container">
+
+<form>
+    <div class="form-group">
+    <div class="row">
+      <div class="col-md-6">
+        <label for="sid">รหัสนิสิต</label>
+        <input class="form-control" id="sid" type="text">
+      </div>
+    </div>
+
+     <div class="row">
+      <div class="col-md-3">
+        <label for="firstname">ชื่อ</label>
+        <input class="form-control" id="firstname" type="text">
+      </div>
+      <div class="col-md-3">
+        <label for="surname">นามสกุล</label>
+        <input class="form-control" id="surname" type="text">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <label for="faculty">คณะ</label>
+        <input class="form-control" id="faculty" type="text">
+      </div>
+      <div class="col-md-3">
+        <label for="department">ภาควิชา</label>
+        <input class="form-control" id="department" type="text">
+      </div>
+    </div>  
+
+    <div class="row">
+      <div class="col-md-2">
+        <label for="year">ชั้นปี</label>
+        <input class="form-control" id="year" type="text">
+      </div>
+      <div class="col-md-2">
+        <label for="year_enrolled">ปีที่เข้าศึกษา</label>
+        <input class="form-control" id="year_enrolled" type="text">
+      </div>
+    </div> 
+
+    
+    <div class="row">
+         <div class="col-md-5">
+        <div class="form-group">
+        <label for="status">สภาพนิสิต</label>
+        <select class="form-control" id="status">
+        <option>ปกติ</option>
+        <option>คะแนนเฉลี่ยต่ำ</option>
+        <option>ลาพักการศึกษา</option>
+        <option>ศึกษาต่อต่างประเทศ</option>
+        </select>
+        </div>
+        </div>
+    </div> 
+
+    <div class="row">
+      <div class="col-md-4">
+        <label for="firstnameT">ชื่ออาจารย์ที่ปรึกษา</label>
+        <input class="form-control" id="firstnameT" type="text">
+      </div>
+    </div> 
+
+    <br />
+
+
+<div class="row">
+     <div class="col-md-4">
+  <button type="button" class="btn btn-info">
+      <span class="glyphicon glyphicon-search"></span> Search
+    </button>
+    </div>
+</div> 
+
+    </div>
+    </div>
+  </form>
+  </div>
+  
+
+
+</body>
+</html>
