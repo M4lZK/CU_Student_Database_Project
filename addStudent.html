@@ -1,0 +1,241 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Add</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="wnameth=device-wnameth, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluname">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">DBProject</a>
+    </div>
+    <ul class="nav navbar-nav">
+       <li><a href="home.html">Home</a></li>
+      <li><a href="searchStudent.html">Student</a></li>
+      <li><a href="searchActivity.html">Activity&Award</a></li>
+       <li><a href="searchCourse.html">Course</a></li>
+       <li><a href="searchCurriculum.html">Curriculum</a></li>
+        <li class ="active"><a href="addStudent.html">Add</a></li>
+      
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+<div class = "row">
+<h2><span class="label label-primary">เพิ่มข้อมูล</span></h2>
+<br/>
+<div class = "row">
+<div class="btn-group btn-group-justified">
+  <a href="addStudent.html" class="btn btn-primary">Student</a>
+  <a href="#" class="btn btn-primary">Instructor</a>
+  <a href="#" class="btn btn-primary">Course</a>
+  <a href="#" class="btn btn-primary">Section</a>
+  <a href="addCurriculum.html" class="btn btn-primary">Curriculum</a>
+  <a href="#" class="btn btn-primary">Activity&Award</a>
+  <a href="#" class="btn btn-primary">Study Abroad</a>
+  <a href="#" class="btn btn-primary">Vacation</a>
+</div>
+</div>
+
+<div class = "row">
+<br />
+<h3> ข้อมูลส่วนตัว </h3>
+<br />
+<form method="GET" action="addStudent.php">
+    <div class="form-group">
+    <div class="row">
+      <div class="col-md-6">
+        <label for="national_id">รหัสบัตรประชาชน</label>
+        <input class="form-control" name="national_id" type="text">
+      </div>
+    </div>
+
+     <div class="row">
+      <div class="col-md-3">
+        <label for="firstname_th">ชื่อ</label>
+        <input class="form-control" name="firstname_th" type="text">
+      </div>
+      <div class="col-md-3">
+        <label for="surname_th">นามสกุล</label>
+        <input class="form-control" name="surname_th" type="text">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <label for="firstname_en">Name</label>
+        <input class="form-control" name="firstname_en" type="text">
+      </div>
+      <div class="col-md-3">
+        <label for="surname_en">Surname</label>
+        <input class="form-control" name="surname_en" type="text">
+      </div>
+    </div>
+    <br/>
+    <div class ="row">
+      <div class= "col-md-1">
+         วันเกิด
+  <input type="date" name="bday">
+    </div>
+    </div>
+    <br/>
+
+
+
+    <div class="row">
+      <div class="col-md-2">
+        <label for="nationality">สัญชาติ</label>
+        <input class="form-control" name="nationality" type="text">
+      </div>
+     <div class= "col-md-1">
+   <div class="form-group">
+  <label for="sex">เพศ</label>
+  <select class="form-control" name="sex">
+    <option value ='ชาย' selected>ชาย</option>
+    <option value ='หญิง'>หญิง</option>
+  </select>
+  </div>
+    </div> 
+    </div>
+
+    <div class="row">
+    <div class="col-md-3">
+        <label for="e_mail">E-mail</label>
+        <input class="form-control" name="e_mail" type="text">
+      </div>
+      <div class="col-md-3">
+        <label for="phone">หมายเลขโทรศัพท์</label>
+        <input class="form-control" name="phone" type="text">
+      </div>
+    </div>
+    
+<div class="row">
+    <div class="col-md-2">
+        <label for="housenum">บ้านเลขที่</label>
+        <input class="form-control" name="housenum" type="text">
+      </div>
+
+      <div class="col-md-1">
+        <label for="alley">ซอย</label>
+        <input class="form-control" name="alley" type="text">
+      </div>
+      <div class="col-md-2">
+        <label for="building">ตึก/อาคาร</label>
+        <input class="form-control" name="building" type="text">
+      </div>
+    </div>
+
+    <div class="row">
+    <div class="col-md-2">
+        <label for="road">ถนน</label>
+        <input class="form-control" name="road" type="text">
+      </div>
+      <div class="col-md-2">
+        <label for="subdistrict">แขวง/ตำบล</label>
+        <input class="form-control" name="subdistrict" type="text">
+      </div>
+      <div class="col-md-2">
+        <label for="district">เขต/อำเภอ</label>
+        <input class="form-control" name="district" type="text">
+      </div>
+    </div>
+
+    <div class="row">
+    <div class="col-md-2">
+        <label for="province">จังหวัด</label>
+        <input class="form-control" name="province" type="text">
+      </div>
+      <div class="col-md-2">
+        <label for="postal">หมายเลขไปรษณีย์</label>
+        <input class="form-control" name="postal" type="text">
+      </div>
+    </div>
+
+    <br />
+<h3> ข้อมูลการศึกษา </h3>
+<br />
+
+ <div class="row">
+    <div class="col-md-2">
+        <label for="sid">รหัสนิสิต</label>
+        <input class="form-control" name="sid" type="text">
+      </div>
+    </div>
+
+     <div class="row">
+    <div class="col-md-2">
+        <label for="faculty">คณะ</label>
+        <input class="form-control" name="faculty" type="text">
+      </div>
+      <div class="col-md-2">
+        <label for="department">ภาควิชา</label>
+        <input class="form-control" name="department" type="text">
+      </div>
+    </div>
+
+     <div class="row">
+      <div class="col-md-2">
+        <label for="year_enrolled">ปีที่เข้าศึกษา (พุทธศักราช)</label>
+        <input class="form-control" name="year_enrolled" type="text">
+      </div>
+    </div>
+    <div class="row">
+         <div class="col-md-5">
+        <div class="form-group">
+        <label for="status">สภาพนิสิต</label>
+        <select class="form-control" name="status">
+        <option>ปกติ</option>
+        <option>คะแนนเฉลี่ยต่ำ</option>
+        <option>ลาพักการศึกษา</option>
+        <option>ศึกษาต่อต่างประเทศ</option>
+        </select>
+        </div>
+        </div>
+    </div>
+
+    <div class="row">
+    <div class="col-md-2">
+        <label for="bscore">คะแนนความประพฤติ</label>
+        <input class="form-control" name="bscore" type="text">
+      </div>
+    </div>
+    
+
+
+    
+    
+
+    <br />
+
+
+ <div class="row">
+     <div class="col-md-4">
+ <input type="submit" value="Submit">
+ <input type="reset" value="Reset">
+    </div>
+</div> 
+
+    </div>
+    </div>
+  </form>
+</div>
+
+</div>
+</div>
+
+<br />
+
+  
+
+
+</body>
+</html>
