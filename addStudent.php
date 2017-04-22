@@ -87,7 +87,6 @@ $department = $_GET["department"];
 $year_enrolled = $_GET["year_enrolled"];
 $status = $_GET["status"];
 $bscore = $_GET["bscore"];
-$check = true;
 
 $query = "INSERT INTO person(firstname_th,surname_th,nationality,gender,national_id,firstname_en,surname_en,phone_num,e_mail,date_of_birth)
 VALUES ('$firstname_th','$surname_th','$nationality','$gender','$national_id','$firstname_en','$surname_en','$phone_num','$e_mail','$date_of_birth')";
