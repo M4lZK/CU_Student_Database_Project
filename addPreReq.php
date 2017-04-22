@@ -63,57 +63,24 @@ include('connect.php');
 <br/>
 <br/>
 <?php
-$cur_id = $_GET["cur_id"];
-$cur_name = $_GET["name"];
-$year = $_GET["year"];
-$degree = $_GET["status"];
-$fname = $_GET["fname"];
-$dname = $_GET["dname"];
 
-$query = "SELECT fid FROM faculty WHERE fname_th =".'"'.$fname.'"';
-$result = $conn->query($query);
-$fid = "";
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        $fid = $row["fid"];
-    }
-} else {
-    echo "0 results";
-}
+$cid1 = $_GET["cid1"];
+$cid2 = $_GET["cid2"];
 
-$query = "SELECT did FROM department NATURAL JOIN part_of WHERE dname_th =".'"'.$dname.'" AND fid ='.$fid;
-$result = $conn->query($query);
-
-$did = "";
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        $did = $row["did"];
-    }
-} else {
-    echo "0 results";
-}
-
-$query = "INSERT INTO curriculum(cur_id,cur_name,year,degree)
-VALUES ('$cur_id','$cur_name','$year','$degree')";
+$query = "INSERT INTO prereq(cid1,cid2)
+VALUES ('$cid1','$cid2')";
 
 if ($conn->query($query) === TRUE) {
-    echo "เพิ่มข้อมูลcurriculumสำเร็จ";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-$query = "INSERT INTO manage(cur_id,did)
-VALUES ('$cur_id','$did')";
-
-if ($conn->query($query) === TRUE) {
-    echo "เพิ่มข้อมูลmanageสำเร็จ";
+    echo "เพิ่มข้อมูลprereqสำเร็จ";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 
+
+
+
+//เหลืออัพเดทสถานะstudentที่ไปabroad
 ?>
 </body>
 </html>

@@ -63,14 +63,69 @@ include('connect.php');
 <br/>
 <br/>
 <?php
-$cur_id = $_GET["cur_id"];
-$cur_name = $_GET["name"];
-$year = $_GET["year"];
-$degree = $_GET["status"];
-$fname = $_GET["fname"];
-$dname = $_GET["dname"];
+$national_id = $_GET["national_id"];
+$firstname_th = $_GET["firstname_th"];
+$surname_th = $_GET["surname_th"];
+$firstname_en = $_GET["firstname_en"];
+$surname_en = $_GET["surname_en"];
+$date_of_birth = $_GET["bday"];
+$nationality = $_GET["nationality"];
+$gender = $_GET["sex"];
+$e_mail = $_GET["e_mail"];
+$phone_num = $_GET["phone"];
+$house_num = $_GET["housenum"];
+$alley = $_GET["alley"];
+$building = $_GET["building"];
+$road = $_GET["road"];
+$subdistrict = $_GET["subdistrict"];
+$district = $_GET["district"];
+$province = $_GET["province"];
+$postal_code = $_GET["postal"];
+$tid = $_GET["tid"];
+$faculty = $_GET["faculty"];
+$department = $_GET["department"];
+$status = $_GET["status"];
 
-$query = "SELECT fid FROM faculty WHERE fname_th =".'"'.$fname.'"';
+$query = "INSERT INTO person(firstname_th,surname_th,nationality,gender,national_id,firstname_en,surname_en,phone_num,e_mail,date_of_birth)
+VALUES ('$firstname_th','$surname_th','$nationality','$gender','$national_id','$firstname_en','$surname_en','$phone_num','$e_mail','$date_of_birth')";
+
+if ($conn->query($query) === TRUE) {
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$query = "INSERT INTO Instructor(tid,status,national_id)
+VALUES ('$tid','$status','$national_id')";
+
+if ($conn->query($query) === TRUE) {
+
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$query = "INSERT INTO Address(house_num,building,road,alley,subdistrict,district,province,postal_code)
+VALUES ('$house_num','$building','$road','$alley','$subdistrict','$district','$province','$postal_code')";
+
+if ($conn->query($query) === TRUE) {
+
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$query = "INSERT INTO live_in(national_id,house_num,subdistrict,district,province)
+VALUES ('$national_id','$house_num','$subdistrict','$district','$province')";
+
+if ($conn->query($query) === TRUE) {
+
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+
+$query = "SELECT fid FROM faculty WHERE fname_th =".'"'.$faculty.'"';
+
+
+
 $result = $conn->query($query);
 $fid = "";
 if ($result->num_rows > 0) {
@@ -82,7 +137,7 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 
-$query = "SELECT did FROM department NATURAL JOIN part_of WHERE dname_th =".'"'.$dname.'" AND fid ='.$fid;
+$query = "SELECT did FROM department NATURAL JOIN part_of WHERE dname_th =".'"'.$department.'" AND fid ='.$fid;
 $result = $conn->query($query);
 
 $did = "";
@@ -95,25 +150,17 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 
-$query = "INSERT INTO curriculum(cur_id,cur_name,year,degree)
-VALUES ('$cur_id','$cur_name','$year','$degree')";
+$query = "INSERT INTO stay_in(did,national_id)
+VALUES ($did,$national_id)";
 
 if ($conn->query($query) === TRUE) {
-    echo "เพิ่มข้อมูลcurriculumสำเร็จ";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-$query = "INSERT INTO manage(cur_id,did)
-VALUES ('$cur_id','$did')";
-
-if ($conn->query($query) === TRUE) {
-    echo "เพิ่มข้อมูลmanageสำเร็จ";
+    echo "เพิ่มข้อมูลInstructorสำเร็จ";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 
+//อาจารย์อยู่ที่เดียวกับนิสิตยังไม่ได้
 ?>
 </body>
 </html>

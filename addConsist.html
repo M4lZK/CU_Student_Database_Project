@@ -1,22 +1,19 @@
-<?php
 
-include('connect.php');
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Add</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="wnameth=device-wnameth, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluname">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">DBProject</a>
     </div>
@@ -60,60 +57,48 @@ include('connect.php');
     <a href="addConsist.html" class="btn btn-primary">วิชาในหลักสูตร</a>
  </div>
 </div>  
-<br/>
-<br/>
-<?php
-$cur_id = $_GET["cur_id"];
-$cur_name = $_GET["name"];
-$year = $_GET["year"];
-$degree = $_GET["status"];
-$fname = $_GET["fname"];
-$dname = $_GET["dname"];
 
-$query = "SELECT fid FROM faculty WHERE fname_th =".'"'.$fname.'"';
-$result = $conn->query($query);
-$fid = "";
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        $fid = $row["fid"];
-    }
-} else {
-    echo "0 results";
-}
+<div class = "row">
+<br />
+<h3> ข้อมูลภาควิชา </h3>
+<br />
+<form method="GET" action="addConsist.php">
+    <div class="form-group">
+     <div class="row">
+      <div class="col-md-6">
+        <label for="cur_id">รหัสหลักสูตร</label>
+        <input class="form-control" name="cur_id" type="text">
+      </div>
+    </div>
 
-$query = "SELECT did FROM department NATURAL JOIN part_of WHERE dname_th =".'"'.$dname.'" AND fid ='.$fid;
-$result = $conn->query($query);
-
-$did = "";
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        $did = $row["did"];
-    }
-} else {
-    echo "0 results";
-}
-
-$query = "INSERT INTO curriculum(cur_id,cur_name,year,degree)
-VALUES ('$cur_id','$cur_name','$year','$degree')";
-
-if ($conn->query($query) === TRUE) {
-    echo "เพิ่มข้อมูลcurriculumสำเร็จ";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-$query = "INSERT INTO manage(cur_id,did)
-VALUES ('$cur_id','$did')";
-
-if ($conn->query($query) === TRUE) {
-    echo "เพิ่มข้อมูลmanageสำเร็จ";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
+    <div class="row">
+      <div class="col-md-6">
+        <label for="cid">รหัสวิชา</label>
+        <input class="form-control" name="cid" type="text">
+      </div>
+    </div>
+    <br />
 
 
-?>
+ <div class="row">
+     <div class="col-md-4">
+ <input type="submit" value="Submit">
+ <input type="reset" value="Reset">
+    </div>
+</div> 
+
+    </div>
+    </div>
+  </form>
+</div>
+
+</div>
+</div>
+
+<br />
+
+  
+
+
 </body>
 </html>

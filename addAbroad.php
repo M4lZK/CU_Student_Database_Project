@@ -63,57 +63,39 @@ include('connect.php');
 <br/>
 <br/>
 <?php
-$cur_id = $_GET["cur_id"];
-$cur_name = $_GET["name"];
-$year = $_GET["year"];
-$degree = $_GET["status"];
-$fname = $_GET["fname"];
-$dname = $_GET["dname"];
+$sid = $_GET["sid"];
+$eid = $_GET["eid"];
+$name = $_GET["name"];
+$country = $_GET["country"];
+$date_start = $_GET["date_start"];
+$date_end = $_GET["date_end"];
 
-$query = "SELECT fid FROM faculty WHERE fname_th =".'"'.$fname.'"';
+$query = "SELECT national_id FROM student WHERE sid =".'"'.$sid.'"';
 $result = $conn->query($query);
-$fid = "";
+$national_id = "";
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        $fid = $row["fid"];
+        $national_id = $row["national_id"];
     }
 } else {
     echo "0 results";
 }
 
-$query = "SELECT did FROM department NATURAL JOIN part_of WHERE dname_th =".'"'.$dname.'" AND fid ='.$fid;
-$result = $conn->query($query);
-
-$did = "";
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        $did = $row["did"];
-    }
-} else {
-    echo "0 results";
-}
-
-$query = "INSERT INTO curriculum(cur_id,cur_name,year,degree)
-VALUES ('$cur_id','$cur_name','$year','$degree')";
+$query = "INSERT INTO exchange(eid,sid,national_id,date_start,date_end,country,e_name)
+VALUES ('$eid','$sid','$national_id','$date_start','$date_end','$country','$name')";
 
 if ($conn->query($query) === TRUE) {
-    echo "เพิ่มข้อมูลcurriculumสำเร็จ";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-$query = "INSERT INTO manage(cur_id,did)
-VALUES ('$cur_id','$did')";
-
-if ($conn->query($query) === TRUE) {
-    echo "เพิ่มข้อมูลmanageสำเร็จ";
+    echo "เพิ่มข้อมูลexchangeสำเร็จ";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 
+
+
+
+//เหลืออัพเดทสถานะstudentที่ไปabroad
 ?>
 </body>
 </html>

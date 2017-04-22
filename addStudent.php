@@ -36,18 +36,30 @@ include('connect.php');
 <div class = "row">
 <h2><span class="label label-primary">เพิ่มข้อมูล</span></h2>
 <br/>
+<<div class = "row">
+<div class="btn-group btn-group-justified">
+  <a href="addStudent.html" class="btn btn-primary">นักเรียน</a>
+  <a href="addInstructor.html" class="btn btn-primary">อาจารย์</a>
+  <a href="addCourse.html" class="btn btn-primary">วิชา</a>
+  <a href="addSection.html" class="btn btn-primary">ตอนเรียน</a>
+  <a href="addCurriculum.html" class="btn btn-primary">หลักสูตร</a>
+  <a href="addActivityandaward.html" class="btn btn-primary">กิจกรรม/รางวัล</a>
+  <a href="addAbroad.html" class="btn btn-primary">เรียนต่อ</a>
+</div>
+</div>
+</br>
 <div class = "row">
 <div class="btn-group btn-group-justified">
- <a href="addStudent.html" class="btn btn-primary">Student</a>
-  <a href="#" class="btn btn-primary">Instructor</a>
-  <a href="#" class="btn btn-primary">Course</a>
-  <a href="#" class="btn btn-primary">Section</a>
-  <a href="addCurriculum.html" class="btn btn-primary">Curriculum</a>
-  <a href="#" class="btn btn-primary">Activity&Award</a>
-  <a href="#" class="btn btn-primary">Study Abroad</a>
-  <a href="#" class="btn btn-primary">Vacation</a>
-</div>
-</div>
+<a href="addVacation.html" class="btn btn-primary">ลาหยุด</a>
+   <a href="addConsult.html" class="btn btn-primary">การปรึกษา</a>
+    <a href="addTeachCourse.html" class="btn btn-primary">การสอน</a>
+    <a href="addTakeCourse.html" class="btn btn-primary">การลงเรียน</a>
+    <a href="addPreReq.html" class="btn btn-primary">วิชาก่อนหน้า</a>
+    <a href="addFaculty.html" class="btn btn-primary">คณะ</a>
+    <a href="addDepartment.html" class="btn btn-primary">ภาควิชา</a>
+    <a href="addConsist.html" class="btn btn-primary">วิชาในหลักสูตร</a>
+ </div>
+</div>  
 <br/>
 <br/>
 <?php
@@ -75,11 +87,12 @@ $department = $_GET["department"];
 $year_enrolled = $_GET["year_enrolled"];
 $status = $_GET["status"];
 $bscore = $_GET["bscore"];
+$check = true;
+
 $query = "INSERT INTO person(firstname_th,surname_th,nationality,gender,national_id,firstname_en,surname_en,phone_num,e_mail,date_of_birth)
 VALUES ('$firstname_th','$surname_th','$nationality','$gender','$national_id','$firstname_en','$surname_en','$phone_num','$e_mail','$date_of_birth')";
 
 if ($conn->query($query) === TRUE) {
-    echo "เพิ่มข้อมูลPersonสำเร็จ";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
@@ -88,7 +101,7 @@ $query = "INSERT INTO Student(sid,status,year_enrolled,Behaviour_score,national_
 VALUES ('$sid','$status','$year_enrolled','$bscore','$national_id')";
 
 if ($conn->query($query) === TRUE) {
-    echo "เพิ่มข้อมูลStudentสำเร็จ";
+
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
@@ -97,10 +110,59 @@ $query = "INSERT INTO Address(house_num,building,road,alley,subdistrict,district
 VALUES ('$house_num','$building','$road','$alley','$subdistrict','$district','$province','$postal_code')";
 
 if ($conn->query($query) === TRUE) {
-    echo "เพิ่มข้อมูลAddressสำเร็จ";
+
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
+
+$query = "INSERT INTO live_in(national_id,house_num,subdistrict,district,province)
+VALUES ('$national_id','$house_num','$subdistrict','$district','$province')";
+
+if ($conn->query($query) === TRUE) {
+
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+
+$query = "SELECT fid FROM faculty WHERE fname_th =".'"'.$faculty.'"';
+
+
+
+$result = $conn->query($query);
+$fid = "";
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        $fid = $row["fid"];
+    }
+} else {
+    echo "0 results";
+}
+
+$query = "SELECT did FROM department NATURAL JOIN part_of WHERE dname_th =".'"'.$department.'" AND fid ='.$fid;
+$result = $conn->query($query);
+
+$did = "";
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        $did = $row["did"];
+    }
+} else {
+    echo "0 results";
+}
+
+$query = "INSERT INTO stay_in(did,national_id)
+VALUES ($did,$national_id)";
+
+if ($conn->query($query) === TRUE) {
+    echo "เพิ่มข้อมูลStudentสำเร็จ";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+
 ?>
 </body>
 </html>

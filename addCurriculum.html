@@ -33,16 +33,28 @@
 <br/>
 <div class = "row">
 <div class="btn-group btn-group-justified">
- <a href="addStudent.html" class="btn btn-primary">Student</a>
-  <a href="#" class="btn btn-primary">Instructor</a>
-  <a href="#" class="btn btn-primary">Course</a>
-  <a href="#" class="btn btn-primary">Section</a>
-  <a href="addCurriculum.html" class="btn btn-primary">Curriculum</a>
-  <a href="#" class="btn btn-primary">Activity&Award</a>
-  <a href="#" class="btn btn-primary">Study Abroad</a>
-  <a href="#" class="btn btn-primary">Vacation</a>
+  <a href="addStudent.html" class="btn btn-primary">นักเรียน</a>
+  <a href="addInstructor.html" class="btn btn-primary">อาจารย์</a>
+  <a href="addCourse.html" class="btn btn-primary">วิชา</a>
+  <a href="addSection.html" class="btn btn-primary">ตอนเรียน</a>
+  <a href="addCurriculum.html" class="btn btn-primary">หลักสูตร</a>
+  <a href="addActivityandaward.html" class="btn btn-primary">กิจกรรม/รางวัล</a>
+  <a href="addAbroad.html" class="btn btn-primary">เรียนต่อ</a>
 </div>
 </div>
+</br>
+<div class = "row">
+<div class="btn-group btn-group-justified">
+<a href="addVacation.html" class="btn btn-primary">ลาหยุด</a>
+   <a href="addConsult.html" class="btn btn-primary">การปรึกษา</a>
+    <a href="addTeachCourse.html" class="btn btn-primary">การสอน</a>
+    <a href="addTakeCourse.html" class="btn btn-primary">การลงเรียน</a>
+    <a href="addPreReq.html" class="btn btn-primary">วิชาก่อนหน้า</a>
+    <a href="addFaculty.html" class="btn btn-primary">คณะ</a>
+    <a href="addDepartment.html" class="btn btn-primary">ภาควิชา</a>
+    <a href="addConsist.html" class="btn btn-primary">วิชาในหลักสูตร</a>
+ </div>
+</div>  
 
 <div class = "row">
 <br />
@@ -60,31 +72,43 @@
      <div class="row">
       <div class="col-md-1">
         <label for="year">ปีการศึกษา</label>
-        <input class="form-control" id="year" name="year" type="text">
+        <input class="form-control" name="year" type="text">
+      </div>
+      </div>
+     
+     <div class="row">
+      <div class="col-md-5">
+        <label for="name">ชื่อหลักสูตร</label>
+        <input class="form-control" name="name" type="text">
       </div>
       </div>
 
       <div class="row">
-      <div class="col-md-1">
-        <label for="credit">หน่วยกิตทั้งหมด</label>
-        <input class="form-control" id="credit" name="credit" type="text">
+      <div class="col-md-3">
+        <label for="fname">ชื่อคณะ</label>
+        <input class="form-control" name="fname" type="text">
+      </div>
       </div>
 
-      <div class="col-md-1">
-        <label for="credit_gl">หน่วยกิตgen-lang</label>
-        <input class="form-control" id="credit_gl" name="credit_gl" type="text">
+      <div class="row">
+      <div class="col-md-3">
+        <label for="dname">ชื่อภาควิชา</label>
+        <input class="form-control" name="dname" type="text">
+      </div>
       </div>
 
-      <div class="col-md-1">
-        <label for="credit_ge">หน่วยกิตgen-ed</label>
-        <input class="form-control" id="credit_ge" name="credit_ge" type="text">
-      </div>
-
-      <div class="col-md-1">
-        <label for="credit_fe">หน่วยกิตflee-elect</label>
-        <input class="form-control" id="credit_fe" name="credit_fe"  type="text">
-      </div>
-      </div>
+      <div class="row">
+         <div class="col-md-1">
+        <div class="form-group">
+        <label for="status">ระดับปริญญา</label>
+        <select class="form-control" name="status">
+        <option>ตรี</option>
+        <option>โท</option>
+        <option>เอก</option>
+        </select>
+        </div>
+        </div>
+    </div>
       
       <br/>
       <div class="row">

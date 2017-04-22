@@ -63,57 +63,24 @@ include('connect.php');
 <br/>
 <br/>
 <?php
-$cur_id = $_GET["cur_id"];
-$cur_name = $_GET["name"];
-$year = $_GET["year"];
-$degree = $_GET["status"];
-$fname = $_GET["fname"];
-$dname = $_GET["dname"];
+$cid = $_GET["cid"];
+$sec_num = $_GET["sec_num"];
 
-$query = "SELECT fid FROM faculty WHERE fname_th =".'"'.$fname.'"';
-$result = $conn->query($query);
-$fid = "";
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        $fid = $row["fid"];
-    }
-} else {
-    echo "0 results";
-}
 
-$query = "SELECT did FROM department NATURAL JOIN part_of WHERE dname_th =".'"'.$dname.'" AND fid ='.$fid;
-$result = $conn->query($query);
-
-$did = "";
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        $did = $row["did"];
-    }
-} else {
-    echo "0 results";
-}
-
-$query = "INSERT INTO curriculum(cur_id,cur_name,year,degree)
-VALUES ('$cur_id','$cur_name','$year','$degree')";
+$query = "INSERT INTO section(cid,sec_num)
+VALUES ('$cid','$sec_num')";
 
 if ($conn->query($query) === TRUE) {
-    echo "เพิ่มข้อมูลcurriculumสำเร็จ";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-$query = "INSERT INTO manage(cur_id,did)
-VALUES ('$cur_id','$did')";
-
-if ($conn->query($query) === TRUE) {
-    echo "เพิ่มข้อมูลmanageสำเร็จ";
+    echo "เพิ่มข้อมูลsectionสำเร็จ";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 
+
+
+
+//อาจารย์อยู่ที่เดียวกับนิสิตยังไม่ได้
 ?>
 </body>
 </html>
