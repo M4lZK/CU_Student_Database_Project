@@ -38,39 +38,6 @@ include('connect.php');
 </div>
 <br />
 
-<?php
-$sid = $_GET["sid"];
-$firstname = $_GET["firstname"];
-$surname = $_GET["surname"];
-$faculty = $_GET["faculty"];
-$department = $_GET["department"];
-$year = $_GET["year"];
-$year_enrolled = $_GET["year_enrolled"];
-$status = $_GET["status"];
-
-$data = array();
-$query = "SELECT sid,firstname_th,surname_th,fname_th,dname_th,year(curdate())-student.year_enrolled as 'year',year_enrolled,status
-          FROM student NATURAL JOIN person NATURAL JOIN stay_in NATURAL JOIN department NATURAL JOIN part_of NATURAL JOIN faculty
-          WHERE sid LIKE".'"%'.$sid.'%"'."AND firstname_th LIKE".'"%'.$firstname.'%"'."AND surname_th LIKE".'"%'.$surname.'%"'."AND dname_th LIKE".'"%'.$department.'%"'."AND year_enrolled LIKE".'"%'.$year_enrolled.'%"'."AND status LIKE".'"%'.$status.'%"';
-
-
-
-$result = $conn->query($query);
-
-if ($result->num_rows > 0) {
-    // output data of each row
- 
-    while($row = $result->fetch_assoc()) {
-       $data[] = $row;
-    }
-} else {
-    echo "0 results";
-}
-
-
-
-
-?>
 <div class="container">
 <table class="table table-striped">
     <thead>
@@ -83,18 +50,51 @@ if ($result->num_rows > 0) {
         <th>ชั้นปี</th>
         <th>ปีที่เข้าศึกษา</th>
         <th>สภาพนิสิต</th>
+        <th>ดูข้อมูลเพิ่มเติม</th>
       </tr>
     </thead>
 <tbody>
-  <?php
-                foreach($data as $key) {
-                    echo "<tr>";
-                      foreach($key as $vals) {
-                        echo "<td>" . $vals . "</td>";
-                      }
-                    echo "</tr>";
-                }
-              ?>
+<?php
+$sid = $_GET["sid"];
+$firstname = $_GET["firstname"];
+$surname = $_GET["surname"];
+$faculty = $_GET["faculty"];
+$department = $_GET["department"];
+$year = $_GET["year"];
+$year_enrolled = $_GET["year_enrolled"];
+$status = $_GET["status"];
+
+$query = "SELECT sid,firstname_th,surname_th,fname_th,dname_th,year(curdate())-student.year_enrolled as 'year',year_enrolled,status
+          FROM student NATURAL JOIN person NATURAL JOIN stay_in NATURAL JOIN department NATURAL JOIN part_of NATURAL JOIN faculty
+          WHERE sid LIKE".'"%'.$sid.'%"'."AND firstname_th LIKE".'"%'.$firstname.'%"'."AND surname_th LIKE".'"%'.$surname.'%"'."AND dname_th LIKE".'"%'.$department.'%"'."AND year_enrolled LIKE".'"%'.$year_enrolled.'%"'."AND status LIKE".'"%'.$status.'%"';
+
+
+
+$result = $conn->query($query);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+ 
+    while($row = $result->fetch_assoc()) {
+       echo"<tr>";
+       echo"<td>" . $row['sid'] . "</td>";
+       echo"<td>" . $row['firstname_th'] . "</td>";
+       echo"<td>" . $row['surname_th'] . "</td>";
+       echo"<td>" . $row['fname_th'] . "</td>";
+       echo"<td>" . $row['dname_th'] . "</td>";
+       echo"<td>" . $row['year'] . "</td>";
+       echo"<td>" . $row['year_enrolled'] . "</td>";
+       echo"<td>" . $row['status'] . "</td>";
+      echo "<td><a href=student.php?sid=".$row['sid'].">ดูข้อมูลเพิ่มเติม</a></td>";
+    }
+} else {
+    echo "0 results";
+}
+
+
+
+
+?>
 </tbody>
 </table>
 </div>  

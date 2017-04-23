@@ -105,6 +105,7 @@ if ($conn->query($query) === TRUE) {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
+
 $query = "INSERT INTO Address(house_num,building,road,alley,subdistrict,district,province,postal_code)
 VALUES ('$house_num','$building','$road','$alley','$subdistrict','$district','$province','$postal_code')";
 
@@ -160,7 +161,6 @@ if ($conn->query($query) === TRUE) {
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
-
 
 ?>
 </body>
