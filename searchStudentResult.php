@@ -22,12 +22,12 @@ include('connect.php');
       <a class="navbar-brand" href="#">DBProject</a>
     </div>
     <ul class="nav navbar-nav">
-     <li><a href="home.html">Home</a></li>
+     <li><a href="home.php">Home</a></li>
       <li class="active"><a href="searchStudent.html">Student</a></li>
       <li><a href="searchActivity.html">Activity&Award</a></li>
        <li><a href="searchCourse.html">Course</a></li>
        <li><a href="searchCurriculum.html">Curriculum</a></li>
-       <li class ="active"><a href="addStudent.html">Add</a></li>
+       <li><a href="addStudent.html">Add</a></li>
       
     </ul>
   </div>
@@ -66,7 +66,7 @@ $status = $_GET["status"];
 
 $query = "SELECT sid,firstname_th,surname_th,fname_th,dname_th,year(curdate())-student.year_enrolled as 'year',year_enrolled,status
           FROM student NATURAL JOIN person NATURAL JOIN stay_in NATURAL JOIN department NATURAL JOIN part_of NATURAL JOIN faculty
-          WHERE sid LIKE".'"%'.$sid.'%"'."AND firstname_th LIKE".'"%'.$firstname.'%"'."AND surname_th LIKE".'"%'.$surname.'%"'."AND dname_th LIKE".'"%'.$department.'%"'."AND year_enrolled LIKE".'"%'.$year_enrolled.'%"'."AND status LIKE".'"%'.$status.'%"';
+          WHERE sid LIKE".'"%'.$sid.'%"'."AND firstname_th LIKE".'"%'.$firstname.'%"'."AND surname_th LIKE".'"%'.$surname.'%"'."AND dname_th LIKE".'"%'.$department.'%"'."AND year_enrolled LIKE".'"%'.$year_enrolled.'%"'."AND status LIKE".'"%'.$status.'%"'."AND fname_th LIKE".'"%'.$faculty.'%"';
 
 
 
@@ -82,7 +82,12 @@ if ($result->num_rows > 0) {
        echo"<td>" . $row['surname_th'] . "</td>";
        echo"<td>" . $row['fname_th'] . "</td>";
        echo"<td>" . $row['dname_th'] . "</td>";
+       if($row['status'] == "ปกติ"){
        echo"<td>" . $row['year'] . "</td>";
+       }
+       else{
+         echo"<td>" . "-" . "</td>";
+       }
        echo"<td>" . $row['year_enrolled'] . "</td>";
        echo"<td>" . $row['status'] . "</td>";
       echo "<td><a href=student.php?sid=".$row['sid'].">ดูข้อมูลเพิ่มเติม</a></td>";
