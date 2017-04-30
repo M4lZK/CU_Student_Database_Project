@@ -61,7 +61,7 @@ include('connect.php');
     <a href="addFaculty.html" class="btn btn-primary">คณะ</a>
     <a href="addDepartment.html" class="btn btn-primary">ภาควิชา</a>
     <a href="addConsist.html" class="btn btn-primary">วิชาในหลักสูตร</a>
-    <a href="addStudyIn.html" class="btn btn-primary">นักเรียนในหลักสูตร</a>
+    <a href="addStudyIn.html" class="btn btn-primary">นิสิตในหลักสูตร</a>
  </div>
 </div>  
 <br/>
