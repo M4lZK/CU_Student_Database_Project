@@ -66,7 +66,7 @@ $query = "UPDATE person SET firstname_th = ".'"'.$firstname_th.'"'.
 ", date_of_birth = ".'"'.$date_of_birth.'" where national_id = '.'"'.$national_id.'"';
 
 if ($conn->query($query) == TRUE) {
-echo "แก้ไขข้อมูลสำเร็จ";
+
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
@@ -77,7 +77,7 @@ $query = "UPDATE live_in SET house_num = ".'"'.$house_num.'"'.
 ", province = ".'"'.$province.'" where national_id = '.'"'.$national_id.'"';
 
 if ($conn->query($query) == TRUE) {
-echo "แก้ไขข้อมูลสำเร็จ";
+
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
