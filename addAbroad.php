@@ -41,7 +41,7 @@ include('connect.php');
 <br/>
 <div class = "row">
 <div class="btn-group btn-group-justified">
-  <a href="addStudent.html" class="btn btn-primary">นักเรียน</a>
+  <a href="addStudent.html" class="btn btn-primary">นิสิต</a>
   <a href="addInstructor.html" class="btn btn-primary">อาจารย์</a>
   <a href="addCourse.html" class="btn btn-primary">วิชา</a>
   <a href="addSection.html" class="btn btn-primary">ตอนเรียน</a>
