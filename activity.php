@@ -61,31 +61,31 @@ include('connect.php');
     ?>
 
 <div class="container">
-    <h2><span class="label label-warning">Activity/Award Info</span>
-    <b>
-    <?php
-        echo "$name";
-    ?>
-    </b>
-    </h2>
-    <h3><b>รหัสกิจกรรม/รางวัล :  </b>
-    <?php
-        echo "$aid";
-    ?>
-    </h3>
-    <h3><b>ชื่อกิจกรรม/รางวัล :  </b>
-    <?php
-        echo "$name $year";
-    ?>
-    </h3>
-    <h3><b>รายละเอียด :  </b>
-    <?php
-        echo "";
-    ?>
-    </h3>
-    <h3><b>นิสิตที่เข้าร่วม  </b></h3>
+<div class="row">
+<?php
+echo"<h2>ข้อมูลกิจกรรมรหัส -"." $aid</h2>";
+?>
 </div>
-<div class="container">
+
+<div class = "row">
+<div class = "col-md-6">
+<?php
+echo"<h4><b>รหัสกิจกรรม:</b> "."$aid<h4>"; 
+?> 
+</div>
+</div>
+    
+<div class = "row">
+<div class = "col-md-6">
+<?php
+echo"<h4><b>ชิ่อกิจกรรม/รางวัล:</b> "."$name<h4>"; 
+?> 
+</div>
+</div>
+
+<div class = "row">
+    <h3><u>นิสิตที่เข้าร่วม  </u></h3>
+</div>
   <table class="table table-striped">
     <thead>
       <tr>

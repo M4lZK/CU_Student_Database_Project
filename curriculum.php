@@ -88,7 +88,7 @@ echo"<h4><b>ปี:</b> ".$row['year']."<h4>";
 <div class = "row">
 <div class = "col-md-5">
 <?php
-echo"<h4><b>ดีกรี:</b> ".$row['degree']."<h4>"; 
+echo"<h4><b>ระดับปริญญา:</b> ".$row['degree']."<h4>"; 
 ?> 
 </div>
 <div class = "col-md-5">
