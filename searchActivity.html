@@ -18,7 +18,10 @@
     <ul class="nav navbar-nav">
       <li><a href="home.php">Home</a></li>
       <li><a href="searchStudent.html">Student</a></li>
+      <li><a href="searchInstructor.html">Instructor</a></li>
       <li class="active"><a href="searchActivity.html">Activity&Award</a></li>
+       <li><a href="searchVacation.html">Vacation</a></li>
+        <li><a href="searchExchange.html">Exchange</a></li>
        <li><a href="searchCourse.html">Course</a></li>
        <li><a href="searchCurriculum.html">Curriculum</a></li>
        <li><a href="addStudent.html">Add</a></li>
@@ -35,26 +38,26 @@
 
 <div class="container">
 
-<form>
+<form method="GET" action="searchActivityResult.php">
     <div class="form-group">
     <div class="row">
       <div class="col-md-6">
         <label for="aid">รหัสกิจกรรม/รางวัล</label>
-        <input class="form-control" id="aid" type="text">
+        <input class="form-control" name="aid" type="text">
       </div>
     </div>
 
      <div class="row">
       <div class="col-md-6">
         <label for="actname">ชื่อกิจกรรม/รางวัล</label>
-        <input class="form-control" id="actname" type="text">
+        <input class="form-control" name="actname" type="text">
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-1">
         <label for="actyear">ปี</label>
-        <input class="form-control" id="actyear" type="text">
+        <input class="form-control" name="actyear" type="text">
       </div>
     </div>
 
@@ -62,9 +65,8 @@
 
     <div class="row">
      <div class="col-md-4">
-  <button type="button" class="btn btn-info">
-      <span class="glyphicon glyphicon-search"></span> Search
-    </button>
+ <input type="submit" value="Submit">
+ <input type="reset" value="Reset">
     </div>
 </div> 
 

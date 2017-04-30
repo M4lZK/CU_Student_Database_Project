@@ -21,12 +21,15 @@ include('connect.php');
       <a class="navbar-brand" href="#">DBProject</a>
     </div>
     <ul class="nav navbar-nav">
-       <li><a href="home.html">Home</a></li>
+       <li><a href="home.php">Home</a></li>
       <li><a href="searchStudent.html">Student</a></li>
+      <li><a href="searchInstructor.html">Instructor</a></li>
       <li><a href="searchActivity.html">Activity&Award</a></li>
+       <li><a href="searchVacation.html">Vacation</a></li>
+        <li><a href="searchExchange.html">Exchange</a></li>
        <li><a href="searchCourse.html">Course</a></li>
        <li><a href="searchCurriculum.html">Curriculum</a></li>
-        <li class ="active"><a href="addStudent.html">Add</a></li>
+       <li class="active"><a href="addStudent.html">Add</a></li>
       
     </ul>
   </div>
@@ -58,6 +61,7 @@ include('connect.php');
     <a href="addFaculty.html" class="btn btn-primary">คณะ</a>
     <a href="addDepartment.html" class="btn btn-primary">ภาควิชา</a>
     <a href="addConsist.html" class="btn btn-primary">วิชาในหลักสูตร</a>
+    <a href="addStudyIn.html" class="btn btn-primary">นักเรียนในหลักสูตร</a>
  </div>
 </div>  
 <br/>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Course</title>
+  <title>Activity</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -20,51 +20,58 @@
       <li><a href="searchStudent.html">Student</a></li>
       <li><a href="searchInstructor.html">Instructor</a></li>
       <li><a href="searchActivity.html">Activity&Award</a></li>
-       <li><a href="searchVacation.html">Vacation</a></li>
+       <li class="active"><a href="searchVacation.html">Vacation</a></li>
         <li><a href="searchExchange.html">Exchange</a></li>
-       <li class="active"><a href="searchCourse.html">Course</a></li>
+       <li><a href="searchCourse.html">Course</a></li>
        <li><a href="searchCurriculum.html">Curriculum</a></li>
        <li><a href="addStudent.html">Add</a></li>
+      
       
     </ul>
   </div>
 </nav>
 
 <div class="container">
-<h2><span class="label label-success">ระบบค้นหาวิชาเรียน</span></h2>
+<h2><span class="label label-success">ระบบค้นหาข้อมูลการลาหยุด</span></h2>
 </div>
 <br />
 
 <div class="container">
 
-<form method="GET" action="searchCourseResult.php">
+<form method="GET" action="searchVacationResult.php">
     <div class="form-group">
     <div class="row">
-      <div class="col-md-3">
-        <label for="cid">รหัสวิชา</label>
-        <input class="form-control" name="cid" type="text">
-      </div>
-      <div class="col-md-4">
-        <label for="c_sname">ชื่อวิชา</label>
-        <input class="form-control" name="c_sname" type="text">
+      <div class="col-md-6">
+        <label for="vid">รหัสการลาหยุด</label>
+        <input class="form-control" name="vid" type="text">
       </div>
     </div>
 
-
-      
-        <div class="row">
-         <div class="col-md-3">
-        <div class="form-group">
-        <label for="type">หมวด</label>
-        <select class="form-control" name="type">
-        <option>วิชาบังคับ</option>
-        <option>วิชาการเรียนทั่วไป (Gen-ed)</option>
-        <option>วิชาภาษาทั่วไป (Gen-lang)</option>
-        </select>
-        </div>
-        </div>
-    </div> 
+     <div class="row">
+      <div class="col-md-6">
+        <label for="sid">รหัสนิสิต</label>
+        <input class="form-control" name="sid" type="text">
+      </div>
     </div>
+
+    
+
+    <div class ="row">
+      <div class= "col-md-1">
+         <b>วันเริ่มต้น</b>
+  <input type="date" name="date_start">
+    </div>
+    </div>
+
+    
+
+    <div class ="row">
+      <div class= "col-md-1">
+        <b> วันสิ้นสุด </b>
+  <input type="date" name="date_end">
+    </div>
+    </div>
+    <br />
 
     <div class="row">
      <div class="col-md-4">

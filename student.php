@@ -77,9 +77,12 @@ $cur_name = $row['cur_name'];
       <a class="navbar-brand" href="#">DBProject</a>
     </div>
     <ul class="nav navbar-nav">
-     <li><a href="home.html">Home</a></li>
+     <li><a href="home.php">Home</a></li>
       <li class="active"><a href="searchStudent.html">Student</a></li>
+      <li><a href="searchInstructor.html">Instructor</a></li>
       <li><a href="searchActivity.html">Activity&Award</a></li>
+       <li><a href="searchVacation.html">Vacation</a></li>
+        <li><a href="searchExchange.html">Exchange</a></li>
        <li><a href="searchCourse.html">Course</a></li>
        <li><a href="searchCurriculum.html">Curriculum</a></li>
        <li><a href="addStudent.html">Add</a></li>
@@ -473,10 +476,41 @@ if ($result->num_rows > 0){
 </table>
 </div>
 
+<div class="row">
+<h3><u>ข้อมูลการลาหยุด</u></h3>
+</div>
+<div class="row">
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>รหัสการลาหยุด</th>
+        <th>วันเริ่มต้น</th>
+        <th>วันสิ้นสุด</th>
+      </tr>
+    </thead>
+<tbody>
 
+<?php
+$query = "select * from vacation where sid = ".'"'."$sid".'"';
+$result = $conn->query($query);
+if ($result->num_rows > 0){
+ while($row = $result->fetch_assoc()) {
+      echo"<tr>";
+       echo"<td>" . $row['vid'] . "</td>";
+       echo"<td>" . $row['v_date_start'] . "</td>";
+        echo"<td>" . $row['v_date_end'] . "</td>";
+ }
+}
+?>
+</tbody>
+</table>
+</div>
+<?php
+echo("<a href=studentDelete.php?sid=".$sid.">ลบข้อมูล</a>");
+?>
 
 </div>
-
+<br />
 
 
 </body>

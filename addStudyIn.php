@@ -21,7 +21,7 @@ include('connect.php');
       <a class="navbar-brand" href="#">DBProject</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="home.php">Home</a></li>
+       <li><a href="home.php">Home</a></li>
       <li><a href="searchStudent.html">Student</a></li>
       <li><a href="searchInstructor.html">Instructor</a></li>
       <li><a href="searchActivity.html">Activity&Award</a></li>
@@ -67,24 +67,14 @@ include('connect.php');
 <br/>
 <br/>
 <?php
-$fid = $_GET["fid"];
-$f_nameth = $_GET["f_nameth"];
-$f_nameeng = $_GET["f_nameeng"];
+$sid = $_GET["sid"];
+$cur_id = $_GET["cur_id"];
 
-$query = "INSERT INTO faculty(fid,fname_th)
-VALUES ('$fid','$f_nameth')";
-
-if ($conn->query($query) === TRUE) {
-
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-$query = "INSERT INTO facultyengname(fname_eng,fname_th)
-VALUES ('$f_nameeng','$f_nameth')";
+$query = "INSERT INTO study_in(sid,cur_id)
+VALUES ('$sid','$cur_id')";
 
 if ($conn->query($query) === TRUE) {
-echo "เพิ่มข้อมูลสำเร็จ";
+    echo "เพิ่มข้อมูลstudy_inสำเร็จ";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
@@ -93,8 +83,7 @@ echo "เพิ่มข้อมูลสำเร็จ";
 
 
 
-
-//อาจารย์อยู่ที่เดียวกับนิสิตยังไม่ได้
+//เหลืออัพเดทสถานะstudentที่ไปabroad
 ?>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Course</title>
+  <title>Student</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -16,13 +16,13 @@
       <a class="navbar-brand" href="#">DBProject</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="home.php">Home</a></li>
+     <li><a href="home.php">Home</a></li>
       <li><a href="searchStudent.html">Student</a></li>
-      <li><a href="searchInstructor.html">Instructor</a></li>
+      <li class = "active"><a href="searchInstructor.html">Instructor</a></li>
       <li><a href="searchActivity.html">Activity&Award</a></li>
        <li><a href="searchVacation.html">Vacation</a></li>
         <li><a href="searchExchange.html">Exchange</a></li>
-       <li class="active"><a href="searchCourse.html">Course</a></li>
+       <li><a href="searchCourse.html">Course</a></li>
        <li><a href="searchCurriculum.html">Curriculum</a></li>
        <li><a href="addStudent.html">Add</a></li>
       
@@ -31,49 +31,54 @@
 </nav>
 
 <div class="container">
-<h2><span class="label label-success">ระบบค้นหาวิชาเรียน</span></h2>
+<h2><span class="label label-success">ระบบค้นหาข้อมูลอาจารย์</span></h2>
 </div>
 <br />
 
 <div class="container">
 
-<form method="GET" action="searchCourseResult.php">
+<form method="GET" action="searchInstructorResult.php">
     <div class="form-group">
     <div class="row">
-      <div class="col-md-3">
-        <label for="cid">รหัสวิชา</label>
-        <input class="form-control" name="cid" type="text">
-      </div>
-      <div class="col-md-4">
-        <label for="c_sname">ชื่อวิชา</label>
-        <input class="form-control" name="c_sname" type="text">
+      <div class="col-md-6">
+        <label for="tid">รหัสอาจารย์</label>
+        <input class="form-control" name="tid" type="text">
       </div>
     </div>
 
-
-      
-        <div class="row">
-         <div class="col-md-3">
-        <div class="form-group">
-        <label for="type">หมวด</label>
-        <select class="form-control" name="type">
-        <option>วิชาบังคับ</option>
-        <option>วิชาการเรียนทั่วไป (Gen-ed)</option>
-        <option>วิชาภาษาทั่วไป (Gen-lang)</option>
-        </select>
-        </div>
-        </div>
-    </div> 
+     <div class="row">
+      <div class="col-md-3">
+        <label for="firstname">ชื่อ</label>
+        <input class="form-control" name="firstname" type="text">
+      </div>
+      <div class="col-md-3">
+        <label for="surname">นามสกุล</label>
+        <input class="form-control" name="surname" type="text">
+      </div>
     </div>
 
     <div class="row">
+      <div class="col-md-3">
+        <label for="faculty">คณะ</label>
+        <input class="form-control" name="faculty" type="text">
+      </div>
+    </div>  
+
+    <div class="row">
+      <div class="col-md-3">
+        <label for="department">ภาควิชา</label>
+        <input class="form-control" name="department" type="text">
+      </div>
+    </div>  
+
+    <br />
+
+<div class="row">
      <div class="col-md-4">
  <input type="submit" value="Submit">
  <input type="reset" value="Reset">
     </div>
 </div> 
-
-   
 
     </div>
     </div>
