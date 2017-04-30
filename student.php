@@ -187,7 +187,7 @@ echo"<h4><b>ซอย:</b> "."$alley<h4>";
 </div>
 <div class = "col-md-2">
 <?php
-echo"<h4><b>อาคาร:</b> "."$building<h4>"; 
+echo"<h4><b>ตึก/อาคาร:</b> "."$building<h4>"; 
 ?> 
 </div>
 </div>
