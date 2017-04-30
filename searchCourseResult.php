@@ -67,20 +67,26 @@ include('connect.php');
 
     if ($result->num_rows > 0) {
       // output data of each row
- 
+      $count = 0;
         while($row = $result->fetch_assoc()) {
           echo"<tr>";
           echo"<td>" . $row['cid'] . "</td>";
           echo"<td>" . $row['c_sname'] . "</td>";
           echo"<td>" . $row['credit'] . "</td>";
           echo "<td><a href=course.php?cid=".$row['cid'].">ดูข้อมูลเพิ่มเติม</a></td>";
+          $count = $count + 1;
          }
     } else {
        echo "0 results";
     }
     ?>
+    </table>
 
-
+<div class = "row">
+  <?php
+   echo("<h4><b>จำนวนผลการค้นหา : </b>".$count."<h4>");
+   ?>
+   </div>
 
 
 

@@ -390,7 +390,7 @@ echo("<h4><b>เกรดเฉลี่ยสะสม:</b> "."$grade_avg </h4>
 <tbody>
 
 <?php
-$query = "Select *
+$query = "Select cid,c_sname,type,credit
 from (SELECT cid from study_in natural join curriculum natural join consist_of where sid = ".'"'."$sid".'"'.") as table1 NATURAL JOIN course
 where cid not in (SELECT cid from student NATURAL JOIN take NATURAL JOIN course WHERE sid = ".'"'."$sid".'"'." AND grade != 0)";
 $result = $conn->query($query);
@@ -505,9 +505,17 @@ if ($result->num_rows > 0){
 </tbody>
 </table>
 </div>
+<div class = "row">
 <?php
 echo("<a href=studentDelete.php?sid=".$sid.">ลบข้อมูล</a>");
 ?>
+</div>
+
+<div class = "row">
+<?php
+echo("<a href=editStudent.php?sid=".$sid.">แก้ไขข้อมูลส่วนตัว</a>");
+?>
+</div>
 
 </div>
 <br />

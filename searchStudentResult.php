@@ -76,7 +76,7 @@ $result = $conn->query($query);
 
 if ($result->num_rows > 0) {
     // output data of each row
- 
+    $count = 0;
     while($row = $result->fetch_assoc()) {
        echo"<tr>";
        echo"<td>" . $row['sid'] . "</td>";
@@ -93,6 +93,7 @@ if ($result->num_rows > 0) {
        echo"<td>" . $row['year_enrolled'] . "</td>";
        echo"<td>" . $row['status'] . "</td>";
       echo "<td><a href=student.php?sid=".$row['sid'].">ดูข้อมูลเพิ่มเติม</a></td>";
+      $count = $count + 1;
     }
 } else {
     echo "0 results";
@@ -104,6 +105,11 @@ if ($result->num_rows > 0) {
 ?>
 </tbody>
 </table>
+<div class = "row">
+  <?php
+   echo("<h4><b>จำนวนผลการค้นหา : </b>".$count."<h4>");
+   ?>
+   </div>
 </div>  
 
 

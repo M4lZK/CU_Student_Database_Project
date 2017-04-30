@@ -67,7 +67,7 @@ include('connect.php');
 
     if ($result->num_rows > 0) {
       // output data of each row
- 
+      $count = 0;
         while($row = $result->fetch_assoc()) {
           echo"<tr>";
           echo"<td>" . $row['cur_id'] . "</td>";
@@ -76,6 +76,7 @@ include('connect.php');
            echo"<td>" . $row['fname_th'] . "</td>";
           echo"<td>" . $row['dname_th'] . "</td>";
           echo "<td><a href=curriculum.php?cur_id=".$row['cur_id'].">ดูข้อมูลเพิ่มเติม</a></td>";
+          $count = $count + 1;
          }
     } else {
        echo "0 results";
@@ -83,6 +84,12 @@ include('connect.php');
     ?>
     </tbody>
   </table>
+
+  <div class = "row">
+  <?php
+   echo("<h4><b>จำนวนผลการค้นหา : </b>".$count."<h4>");
+   ?>
+   </div>
 </div>
     
 

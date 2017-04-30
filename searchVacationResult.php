@@ -68,7 +68,7 @@ include('connect.php');
 
     if ($result->num_rows > 0) {
       // output data of each row
- 
+      $count = 0;
         while($row = $result->fetch_assoc()) {
           echo"<tr>";
           echo"<td>" . $row['vid'] . "</td>";
@@ -77,6 +77,7 @@ include('connect.php');
           echo"<td>" . $row['surname_th'] . "</td>";
           echo"<td>" . $row['v_date_start'] . "</td>";
           echo"<td>" . $row['v_date_end'] . "</td>";
+          $count = count + 1;
          }
     } else {
        echo "0 results";
@@ -84,6 +85,11 @@ include('connect.php');
     ?>
     </tbody>
   </table>
+  <div class = "row">
+  <?php
+   echo("<h4><b>จำนวนผลการค้นหา : </b>".$count."<h4>");
+   ?>
+   </div>
 </div>
     
 

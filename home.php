@@ -213,9 +213,9 @@ count(CASE WHEN gpax BETWEEN 2.0000001 AND 2.5THEN 1 END) as '2-2.5',
 count(CASE WHEN gpax BETWEEN 2.5000001 AND 3 THEN 1 END) as '2.5-3',
 count(CASE WHEN gpax BETWEEN 3.0000001 AND 3.5 THEN 1 END) as '3-3.5',
 count(CASE WHEN gpax BETWEEN 3.5000001 AND 4 THEN 1 END) as '3.5-4'
-from ((SELECT sid,year(curdate()) - year_enrolled as 'year', ((sum(grade*credit))/(sum(credit))) as 'gpax'
-from student natural join take natural join course
-group by sid) as student2) group by year");
+from ((SELECT sid,year(curdate()) - year_enrolled as 'year', ((sum(grade*credit))/(sum(credit))) as 'gpax' 
+	 from student natural join take natural join course group by sid) as student2) 
+group by year");
 
 ?>
 

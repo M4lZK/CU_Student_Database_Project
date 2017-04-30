@@ -65,13 +65,14 @@ include('connect.php');
 
     if ($result->num_rows > 0) {
       // output data of each row
- 
+      $count = 0;
         while($row = $result->fetch_assoc()) {
           echo"<tr>";
           echo"<td>" . $row['aid'] . "</td>";
           echo"<td>" . $row['name'] . "</td>";
           echo"<td>" . $row['year'] . "</td>";
           echo "<td><a href=activity.php?aid=".$row['aid'].">ดูข้อมูลเพิ่มเติม</a></td>";
+          $count = $count + 1;
          }
     } else {
        echo "0 results";
@@ -79,6 +80,11 @@ include('connect.php');
     ?>
     </tbody>
   </table>
+  <div class = "row">
+  <?php
+   echo("<h4><b>จำนวนผลการค้นหา : </b>".$count."<h4>");
+   ?>
+   </div>
 </div>
     
 

@@ -71,7 +71,7 @@ $result = $conn->query($query);
 
 if ($result->num_rows > 0) {
     // output data of each row
- 
+    $count = 0;
     while($row = $result->fetch_assoc()) {
        echo"<tr>";
        echo"<td>" . $row['tid'] . "</td>";
@@ -80,6 +80,7 @@ if ($result->num_rows > 0) {
        echo"<td>" . $row['fname_th'] . "</td>";
        echo"<td>" . $row['dname_th'] . "</td>";
        echo "<td><a href=instructor.php?tid=".$row['tid'].">ดูข้อมูลเพิ่มเติม</a></td>";
+       $count = $count = 1;
     }
 } else {
     echo "0 results";
@@ -91,6 +92,11 @@ if ($result->num_rows > 0) {
 ?>
 </tbody>
 </table>
+<div class = "row">
+  <?php
+   echo("<h4><b>จำนวนผลการค้นหา : </b>".$count."<h4>");
+   ?>
+   </div>
 </div>  
 
 
