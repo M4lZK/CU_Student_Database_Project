@@ -40,7 +40,7 @@ if ($result->num_rows > 0) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Add</title>
+  <title>Edit</title>
   <meta charset="utf-8">
   <meta name="viewport" content="wnameth=device-wnameth, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
