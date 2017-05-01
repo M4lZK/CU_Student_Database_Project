@@ -65,7 +65,7 @@ include('connect.php');
     $data = array();
     $query = "SELECT *
           FROM exchange NATURAL JOIN student NATURAL JOIN Person
-          WHERE eid LIKE".'"%'.$eid.'%"'."AND sid LIKE".'"%'.$sid.'%"'."AND country LIKE".'"%'.$country.'%"'."AND e_name LIKE".'"%'.$name.'%"'."AND date_start LIKE".'"%'.$date_start.'%"'."AND date_end LIKE".'"%'.$date_end.'%"';
+          WHERE eid LIKE".'"%'.$eid.'%"'."AND sid LIKE".'"%'.$sid.'%"'."AND country LIKE".'"%'.$country.'%"'."AND e_name LIKE".'"%'.$name.'%"'."AND date_start >=".'"'.$date_start.'"'."AND date_end <=".'"'.$date_end.'"';
 
 
     $result = $conn->query($query);

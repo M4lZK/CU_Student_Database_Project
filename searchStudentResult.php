@@ -67,7 +67,7 @@ $year_enrolled = $_GET["year_enrolled"];
 $status = $_GET["status"];
 
 $query = "SELECT sid,firstname_th,surname_th,fname_th,dname_th,year(curdate())-student.year_enrolled as 'year',year_enrolled,status
-          FROM student NATURAL JOIN person NATURAL JOIN stay_in NATURAL JOIN department NATURAL JOIN part_of NATURAL JOIN faculty
+          FROM student NATURAL JOIN person NATURAL JOIN stay_in NATURAL JOIN department NATURAL JOIN part_of NATURAL JOIN faculty natural join take natural join course
           WHERE sid LIKE".'"%'.$sid.'%"'."AND firstname_th LIKE".'"%'.$firstname.'%"'."AND surname_th LIKE".'"%'.$surname.'%"'."AND dname_th LIKE".'"%'.$department.'%"'."AND year_enrolled LIKE".'"%'.$year_enrolled.'%"'."AND status LIKE".'"%'.$status.'%"'."AND fname_th LIKE".'"%'.$faculty.'%"';
 
 

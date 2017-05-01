@@ -61,7 +61,7 @@ include('connect.php');
     $data = array();
     $query = "SELECT *
           FROM vacation NATURAL JOIN student NATURAL JOIN Person
-          WHERE vid LIKE".'"%'.$vid.'%"'."AND sid LIKE".'"%'.$sid.'%"'."AND v_date_start LIKE".'"%'.$date_start.'%"'."AND v_date_end LIKE".'"%'.$date_end.'%"';
+          WHERE vid LIKE".'"%'.$vid.'%"'."AND sid LIKE".'"%'.$sid.'%"'."AND v_date_start >=".'"'.$date_start.'"'."AND v_date_end <=".'"'.$date_end.'"';
 
 
     $result = $conn->query($query);
