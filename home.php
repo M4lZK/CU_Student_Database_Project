@@ -189,7 +189,7 @@ echo "</tr>";
 									dataLabels: {
 										enabled: true,
 										//format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-										format: '<b>{point.name}</b>: {point.y} คน',
+										format: '<b>{point.name}</b>: {point.y} กิจกรรม/รางวัล',
 										style: {
 											color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
 										}

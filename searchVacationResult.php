@@ -65,10 +65,9 @@ include('connect.php');
 
 
     $result = $conn->query($query);
-
+    $count = 0;
     if ($result->num_rows > 0) {
       // output data of each row
-      $count = 0;
         while($row = $result->fetch_assoc()) {
           echo"<tr>";
           echo"<td>" . $row['vid'] . "</td>";
@@ -77,7 +76,7 @@ include('connect.php');
           echo"<td>" . $row['surname_th'] . "</td>";
           echo"<td>" . $row['v_date_start'] . "</td>";
           echo"<td>" . $row['v_date_end'] . "</td>";
-          $count = count + 1;
+          $count = $count + 1;
          }
     } else {
        echo "0 results";
