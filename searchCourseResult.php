@@ -46,7 +46,8 @@ include('connect.php');
     <thead>
       <tr>
         <th>รหัสวิชา</th>
-        <th>ชื่อวิชา</th>
+        <th>ชื่อย่อวิชา</th>
+        <th>หมวด</th>
         <th>หน่วยกิต</th>
         <th>รายละเอียดเพิ่มเติม</th>
       </tr>
@@ -56,28 +57,33 @@ include('connect.php');
     $cid = $_GET["cid"];
     $c_sname = $_GET["c_sname"];
     $type = $_GET["type"];
-
-    $data = array();
-    $query = "SELECT distinct cid, c_sname, credit
-          FROM course NATURAL JOIN take
+    if($type == "วิชาการเรียนทั่วไป (Gen-ed)"){
+      $type = "วิชาการเรียนทั่วไป";
+    }
+    else if($type == "วิชาภาษาทั่วไป (Gen-lang)"){
+      $type = "วิชาภาษาทั่วไป";
+    }
+    $query = "SELECT distinct cid, c_sname, credit,type
+          FROM course 
           WHERE cid LIKE".'"%'.$cid.'%"'."AND c_sname LIKE".'"%'.$c_sname.'%"'."AND type LIKE".'"%'.$type.'%"';
 
-
+$count = 0;
     $result = $conn->query($query);
 
     if ($result->num_rows > 0) {
       // output data of each row
-      $count = 0;
+
         while($row = $result->fetch_assoc()) {
           echo"<tr>";
           echo"<td>" . $row['cid'] . "</td>";
           echo"<td>" . $row['c_sname'] . "</td>";
+          echo"<td>" . $row['type'] . "</td>";
           echo"<td>" . $row['credit'] . "</td>";
           echo "<td><a href=course.php?cid=".$row['cid'].">ดูข้อมูลเพิ่มเติม</a></td>";
           $count = $count + 1;
          }
     } else {
-       echo "0 results";
+    
     }
     ?>
     </table>
